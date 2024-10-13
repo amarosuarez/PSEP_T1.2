@@ -1,0 +1,50 @@
+[
+  {
+    "Id": 1,
+    "DNI": "12345678A",
+    "Nombre": "Juan",
+    "Apellidos": "P\u00c3\u00a9rez Garc\u00c3\u00ada",
+    "Tel\u00c3\u00a9fono": "612345678",
+    "Email": "juan.perez@example.com"
+  },
+  {
+    "Id": 2,
+    "DNI": "23456789B",
+    "Nombre": "Mar\u00c3\u00ada",
+    "Apellidos": "L\u00c3\u00b3pez Mart\u00c3\u00adnez",
+    "Tel\u00c3\u00a9fono": "623456789",
+    "Email": "maria.lopez@example.com"
+  },
+  {
+    "Id": 3,
+    "DNI": "34567890C",
+    "Nombre": "Carlos",
+    "Apellidos": "G\u00c3\u00b3mez Fern\u00c3\u00a1ndez",
+    "Tel\u00c3\u00a9fono": "634567890",
+    "Email": "carlos.gomez@example.com"
+  },
+  {
+    "Id": 4,
+    "DNI": "45678901D",
+    "Nombre": "Laura",
+    "Apellidos": "S\u00c3\u00a1nchez P\u00c3\u00a9rez",
+    "Tel\u00c3\u00a9fono": "645678901",
+    "Email": "laura.sanchez@example.com"
+  },
+  {
+    "Id": 5,
+    "DNI": "56789012E",
+    "Nombre": "David",
+    "Apellidos": "Mart\u00c3\u00adn D\u00c3\u00adaz",
+    "Tel\u00c3\u00a9fono": "656789012",
+    "Email": "david.martin@example.com"
+  },
+  {
+    "DNI": "45997553Z",
+    "Nombre": "Amaro",
+    "Apellidos": "Su\u00e1rez Villegas",
+    "Tel\u00e9fono": "618646802",
+    "Email": "amaro.suarez@iesnervion.es",
+    "Id": 6
+  }
+]

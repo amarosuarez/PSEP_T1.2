@@ -1,0 +1,37 @@
+[
+    {
+        "Id": 1,
+        "Título": "Mi Primer Blog",
+        "Temática": "Tecnología",
+        "URL": "https:/miprimerblog.com",
+        "IdProgramador": 1
+    },
+    {
+        "Id": 2,
+        "Título": "Recetas Caseras",
+        "Temática": "Cocina",
+        "URL": "https:/recetascaseras.com",
+        "IdProgramador": 2
+    },
+    {
+        "Id": 3,
+        "Título": "Viajes y Aventura",
+        "Temática": "Viajes",
+        "URL": "https:/viajesyaventura.com",
+        "IdProgramador": 1
+    },
+    {
+        "Id": 4,
+        "Título": "Fitness y Salud",
+        "Temática": "Salud",
+        "URL": "https:/fitnessysalud.com",
+        "IdProgramador": 3
+    },
+    {
+        "Id": 5,
+        "Título": "Desarrollo Web para Principiantes",
+        "Temática": "Educación",
+        "URL": "https:/desarrolloweb.com",
+        "IdProgramador": 2
+    }
+]
