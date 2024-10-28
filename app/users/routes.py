@@ -22,25 +22,21 @@ usersFichero = "app/ficheros/users.json"
 
 usersBP = Blueprint('users', __name__)
 
-
-# Funciones auxiliares para leer y escribir el fichero
 def leeFichero(fichero):
-    with open(fichero, 'r') as archivo:
-        users = json.load(archivo)
+    archivo = open(fichero, 'r')
+    users = json.load(archivo)
+    archivo.close()
     return users
 
-
 def escribeFichero(users):
-    with open(usersFichero, 'w') as archivo:
-        json.dump(users, archivo)
-
+    archivo = open(usersFichero, 'w')
+    json.dump(users, archivo)
+    archivo.close()
 
 # Ruta para obtener todos los usuarios
 @usersBP.get("/")
-@jwt_required()  # Protección con JWT
 def getUsers():
     return jsonify(leeFichero(usersFichero))
-
 
 # Ruta para añadir un usuario
 @usersBP.post("/")
