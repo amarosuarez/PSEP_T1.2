@@ -1,4 +1,5 @@
 from flask import *
+from flask_jwt_extended import jwt_required
 
 from app.programadores.programadores import programadoresBP
 
@@ -61,6 +62,7 @@ def findNextId():
     return max(web["Id"] for web in webs) + 1
 
 @websBP.post("/")
+@jwt_required()
 def addWeb():
     if request.is_json:
         web = request.get_json()
@@ -78,6 +80,7 @@ def addWeb():
 # PATCH
 @websBP.put("/<int:id>")
 @websBP.patch("/<int:id>")
+@jwt_required()
 def updateWeb(id):
     if request.is_json:
         newWeb = request.get_json()
@@ -93,6 +96,7 @@ def updateWeb(id):
     return {"error": "Request must be a JSON"}, 415
 
 @websBP.delete("/<int:id>")
+@jwt_required()
 def deleteWeb(id):
     webs = leeFichero(websFichero)
     for web in webs:

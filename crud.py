@@ -3,23 +3,52 @@ import requests
 
 from app.programadores.programadores import programadoresBP
 
+token = ""
+
+
+def login():
+    global token
+    username = input("USERNAME:")
+    password = input("PASSWORD:")
+    resultado = requests.post("http://localhost:5050/users/login",
+                json={"username": username, "password": password},
+                headers={"Content-Type": "application/json"})
+
+    res = False
+
+    if resultado:
+        token = resultado.json().get("token")
+        print(token)
+        res = True
+    else:
+        print("Error")
+
+    return res
+
 
 def main():
     print('Bienvenido a la API de Programadores y sus webs')
-    op = int(input('¿A qué deseas acceder?\n1. Programadores\n2. Webs\n3. Salir\n'))
 
-    while op > 3 or op < 1:
-        print('No es una opción válida')
+    res = login()
+    if (res):
+
         op = int(input('¿A qué deseas acceder?\n1. Programadores\n2. Webs\n3. Salir\n'))
 
-    if op == 1:
-        print('Accediendo a programadores...')
-        programadores()
-    elif op == 2:
-        print('Accediendo a webs...')
-        webs()
-    elif op == 3:
-        print('Hasta pronto!')
+        while op > 3 or op < 1:
+            print('No es una opción válida')
+            op = int(input('¿A qué deseas acceder?\n1. Programadores\n2. Webs\n3. Salir\n'))
+
+        if op == 1:
+            print('Accediendo a programadores...')
+            programadores()
+        elif op == 2:
+            print('Accediendo a webs...')
+            webs()
+        elif op == 3:
+            print('Hasta pronto!')
+    else:
+        main()
+
 
 def programadores():
     api_url = "http://127.0.0.1:5050/programadores"
@@ -28,7 +57,7 @@ def programadores():
 
     while op != 7:
         if op == 1:
-            response = requests.get(api_url)
+            response = requests.get(api_url, headers={"Authorization": "Bearer " + token})
             print(response.json())
         elif op == 2:
             print('\n')
@@ -57,7 +86,7 @@ def programadores():
                     todo = {'Id': idMod, 'DNI': dni, 'Nombre': nombre, 'Apellidos': apellidos, 'Teléfono': telefono,
                             'Email': email}
 
-                    response = requests.put(api_url + '/' +  str(idMod), json=todo)
+                    response = requests.put(api_url + '/' +  str(idMod), json=todo, headers={"Authorization": "Bearer " + token})
                     print(response.status_code)
                     print(response.json())
                 elif opA == 2:

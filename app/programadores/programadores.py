@@ -1,6 +1,7 @@
 from json import JSONDecoder
 
 from flask import *
+from flask_jwt_extended import jwt_required
 import json
 
 app = Flask(__name__)
@@ -23,6 +24,7 @@ def escribeFichero(programadores):
 
 # GET
 @programadoresBP.get("/")
+@jwt_required()
 def getProgramadores():
     return jsonify(leeFichero(programadoresFichero))
 
@@ -57,6 +59,7 @@ def findNextId():
     return max(programador["Id"] for programador in programadores) + 1
 
 @programadoresBP.post("/")
+@jwt_required()
 def addProgramador():
     if request.is_json:
         programador = request.get_json()
@@ -74,6 +77,7 @@ def addProgramador():
 # PATCH
 @programadoresBP.put("/<int:id>")
 @programadoresBP.patch("/<int:id>")
+@jwt_required()
 def updateProgramador(id):
     if request.is_json:
         newProgramador = request.get_json()
@@ -91,6 +95,7 @@ def updateProgramador(id):
     return {"error": "Request must be a JSON"}, 415
 
 @programadoresBP.delete("/<int:id>")
+@jwt_required()
 def deleteProgramador(id):
 
     programadores = leeFichero(programadoresFichero)
